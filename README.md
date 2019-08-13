@@ -66,4 +66,9 @@ FZF
     }
     #####################################
 
+# Bash
+
+## Modify PS1
+
+* http://bashrcgenerator.com/
 
