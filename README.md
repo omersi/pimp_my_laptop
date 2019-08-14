@@ -66,9 +66,8 @@ FZF
     }
     #####################################
 
-# Bash
+# Other Stuff
 
-## Modify PS1
-
-* http://bashrcgenerator.com/
+* Change your PS1 [BashRC Generator](http://bashrcgenerator.com)
+* Configure crontab schedule [Crontab Guru](https://crontab.guru)
 
