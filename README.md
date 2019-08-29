@@ -23,6 +23,11 @@
 
 ----
 ## Pimp my zsh:
+
+### Prefered Theme
+* [Amuse](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#amuse)
+
+### Plugins
 * https://www.freecodecamp.org/news/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38/
 * [zsh](https://ohmyz.sh/) Your terminal never felt this good before
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) Framework for managing your zsh configuration
