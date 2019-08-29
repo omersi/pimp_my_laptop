@@ -26,6 +26,8 @@
 
 ### Prefered Theme
 * [Amuse](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#amuse)
+![amuse](https://cloud.githubusercontent.com/assets/2618447/6316861/70f3c4ce-ba03-11e4-88a5-0b423dd5a2ce.png "Amnuse screenshot")
+
 
 ### Plugins
 * https://www.freecodecamp.org/news/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38/
