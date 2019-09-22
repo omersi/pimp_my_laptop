@@ -1,3 +1,4 @@
+
 # pimp_my_vim_zsh
 
 ----
@@ -23,6 +24,12 @@
 
 ----
 ## Pimp my zsh:
+
+### Move using option + arrows
+```bash
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+```
 
 ### Prefered Theme
 * [Amuse](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#amuse)
