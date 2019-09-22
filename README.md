@@ -43,7 +43,7 @@ bindkey "\e\e[C" forward-word
 * [zsh-completions](https://github.com/zsh-users/zsh-completions) [Additional completion definitions for Zsh)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) Fish shell like syntax highlighting for Zsh.
 * [bat](https://github.com/sharkdp/bat) A cat(1) clone with wings
-** ```bash 
+```bash 
 alias cat='bat'
 ```
 
