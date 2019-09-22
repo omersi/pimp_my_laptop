@@ -47,38 +47,41 @@ bindkey "\e\e[C" forward-word
 ----
 FZF
 
-    ### fzf ############################
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-    export FZF_DEFAULT_OPTS='-m --color fg:-1,bg:-1,hl:120,fg+:3,bg+:233,hl+:229 --color info:140,prompt:120,spinner:150,pointer:167,marker:174'
-     # fe - Open the selected files with the default editor
-    fe() {
-       local files=$(fzf --query="$1" --select-1 --exit-0 | sed -e "s/\(.*\)/\'\1\'/")
-       local command="${EDITOR:-vim} -p $files"
-       [ -n "$files" ] && eval $command
-    }
-     # fag - find an argument with ag and fzf and open with vim
-    fag() {
-     [ $# -eq 0  ] && return
-     local out cols
-     if out=$(ag --nogroup --color "$@" | fzf --ansi); then
-       setopt sh_word_split
-       cols=(${out//:/  })
-       unsetopt sh_word_split
-       vim ${cols[1]} +"normal! ${cols[2]}zz"
-     fi
-    }
-     # cdf - cd into the directory of the selected file\
-    cdf() {
-      local file
-      local dir
-      file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-    }
-     fep() {
-        local files=$(fzf --query="$1" --select-1 --exit-0 --preview="bat --color=always {}" --preview-window=right:50%:wrap | sed -e "s/\(.*\)/\'\1\'/")
-        local command="${EDITOR:-vim} -p $files"
-        [ -n "$files" ] && eval $command
-    }
-    #####################################
+### fzf ############################
+```bash
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='-m --color fg:-1,bg:-1,hl:120,fg+:3,bg+:233,hl+:229 --color info:140,prompt:120,spinner:150,pointer:167,marker:174'
+ # fe - Open the selected files with the default editor
+fe() {
+   local files=$(fzf --query="$1" --select-1 --exit-0 | sed -e "s/\(.*\)/\'\1\'/")
+   local command="${EDITOR:-vim} -p $files"
+   [ -n "$files" ] && eval $command
+}
+ # fag - find an argument with ag and fzf and open with vim
+fag() {
+ [ $# -eq 0  ] && return
+ local out cols
+ if out=$(ag --nogroup --color "$@" | fzf --ansi); then
+   setopt sh_word_split
+   cols=(${out//:/  })
+   unsetopt sh_word_split
+   vim ${cols[1]} +"normal! ${cols[2]}zz"
+ fi
+}
+ # cdf - cd into the directory of the selected file\
+cdf() {
+  local file
+  local dir
+  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+ fep() {
+    local files=$(fzf --query="$1" --select-1 --exit-0 --preview="bat --color=always {}" --preview-window=right:50%:wrap | sed -e "s/\(.*\)/\'\1\'/")
+    local command="${EDITOR:-vim} -p $files"
+    [ -n "$files" ] && eval $command
+}
+```
+
+#####################################
 
 # Other Stuff
 
