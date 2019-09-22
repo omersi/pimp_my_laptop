@@ -43,12 +43,15 @@ bindkey "\e\e[C" forward-word
 * [zsh-completions](https://github.com/zsh-users/zsh-completions) [Additional completion definitions for Zsh)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) Fish shell like syntax highlighting for Zsh.
 * [bat](https://github.com/sharkdp/bat) A cat(1) clone with wings
+** ```bash 
+alias cat='bat'
+```
 
 ----
-FZF
+### FZF
 
-### fzf ############################
 ```bash
+### fzf ############################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='-m --color fg:-1,bg:-1,hl:120,fg+:3,bg+:233,hl+:229 --color info:140,prompt:120,spinner:150,pointer:167,marker:174'
  # fe - Open the selected files with the default editor
@@ -79,10 +82,8 @@ cdf() {
     local command="${EDITOR:-vim} -p $files"
     [ -n "$files" ] && eval $command
 }
-```
-
 #####################################
-
+```
 # Other Stuff
 
 * Change your PS1 [BashRC Generator](http://bashrcgenerator.com)
