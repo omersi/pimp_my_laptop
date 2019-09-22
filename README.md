@@ -25,7 +25,7 @@
 ----
 ## Pimp my zsh:
 
-### Move using option + arrows
+### Move using option (⌥) + arrows
 ```bash
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
