@@ -43,8 +43,17 @@ bindkey "\e\e[C" forward-word
 * [zsh-completions](https://github.com/zsh-users/zsh-completions) [Additional completion definitions for Zsh)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) Fish shell like syntax highlighting for Zsh.
 * [bat](https://github.com/sharkdp/bat) A cat(1) clone with wings
+
+## Aliases
 ```bash 
+alias lql='ls -lA *sql'
+alias hg='history | grep'
+alias pd='$HOME/workspace/scripts/pd.sh'
 alias cat='bat'
+#alias python='python3'
+alias ipython='ipython3'
+alias ptp='ptpython3'
+alias stree='tree -I Archive'
 ```
 
 ----
@@ -89,3 +98,11 @@ cdf() {
 * Change your PS1 [BashRC Generator](http://bashrcgenerator.com)
 * Configure crontab schedule [Crontab Guru](https://crontab.guru)
 
+----
+
+## pd.sh 
+```bash 
+#!/bin/bash
+export LC_ALL=C
+head /dev/urandom | tr -dc 'A-Za-z0-9' | head -c 30 ; echo ''
+```
