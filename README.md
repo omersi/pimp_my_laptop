@@ -53,7 +53,7 @@ alias cat='bat'
 #alias python='python3'
 alias ipython='ipython3'
 alias ptp='ptpython3'
-alias stree='tree -I Archive'
+alias stree='tree -I \'igore1|ignore2|ignore3_*\''
 ```
 
 ----
@@ -104,5 +104,9 @@ cdf() {
 ```bash 
 #!/bin/bash
 export LC_ALL=C
-head /dev/urandom | tr -dc 'A-Za-z0-9' | head -c 30 ; echo ''
+head /dev/urandom | tr -dc 'A-Za-z0-9"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head -c 30 ; echo ''
 ```
+
+---
+# Mac Modifier Keys
+![Modify Keys](mac_modifier_keys.png)
