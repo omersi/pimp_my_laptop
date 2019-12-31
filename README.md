@@ -109,4 +109,14 @@ head /dev/urandom | tr -dc 'A-Za-z0-9"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head 
 
 ---
 # Mac Modifier Keys
+When using mac with external keyboard, it's best to modify the keys to comply with Mac layout.
+I set this way:
+* Caps Lock > Caps Lock
+* Control > Control
+* Option > Command
+* Command > Option
+* Function > fn \(function)
+
+Make sure to select the correct keyboard on the upper drop down menu.
+
 ![Modify Keys](mac_modifier_keys.png)
