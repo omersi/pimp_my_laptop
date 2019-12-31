@@ -1,3 +1,8 @@
+# Menu
+
+1. [Pimp My Vim](https://github.com/omersi/pimp_my_vim_zsh#pimp-my-vim)
+2. [Pimp My ZSH](https://github.com/omersi/pimp_my_vim_zsh#pimp-my-zsh)
+3. [Mac Modifier Keys](https://github.com/omersi/pimp_my_vim_zsh#mac-modifier-keys)
 
 # pimp_my_vim_zsh
 
@@ -25,7 +30,8 @@
 ----
 ## Pimp my zsh:
 
-### Move using option (⌥) + arrows
+### iTerm Move cursor with ctrl + arrow keys
+Set it to work using option (⌥) + arrows
 ```bash
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
