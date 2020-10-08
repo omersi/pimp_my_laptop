@@ -1,8 +1,9 @@
 # Menu
 
-1. [Pimp My Vim](https://github.com/omersi/pimp_my_vim_zsh#pimp-my-vim)
-2. [Pimp My ZSH](https://github.com/omersi/pimp_my_vim_zsh#pimp-my-zsh)
-3. [Mac Modifier Keys](https://github.com/omersi/pimp_my_vim_zsh#mac-modifier-keys)
+1. [Pimp My Vim](https://github.com/omersi/pimp_my_laptop#pimp-my-vim)
+2. [Pimp My ZSH](https://github.com/omersi/pimp_my_laptop#pimp-my-zsh)
+3. [Mac Modifier Keys](https://github.com/omersi/pimp_my_laptop#mac-modifier-keys)
+4. [IDE extensions](https://github.com/omersi/pimp_my_laptop#IDE-extensions)
 
 # pimp_my_vim_zsh
 
@@ -126,3 +127,7 @@ I set this way:
 Make sure to select the correct keyboard on the upper drop down menu.
 
 ![Modify Keys](mac_modifier_keys.png)
+
+---
+# IDE extensions
+* [Tabnine](https://www.tabnine.com/welcome/) - TabNine uses deep learning to help you write code faster.
