@@ -132,3 +132,9 @@ Make sure to select the correct keyboard on the upper drop down menu.
 ---
 # IDE extensions
 * [Tabnine](https://www.tabnine.com/welcome/) - TabNine uses deep learning to help you write code faster.
+
+# Kubernetes
+
+* K3s - Lightweight Kubernetes https://k3s.io
+* K9s -  [Kubernetes CLI To Manage Your Clusters In Style](https://github.com/derailed/k9s)
+
