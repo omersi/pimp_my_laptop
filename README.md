@@ -1,14 +1,18 @@
 # Menu
 
 1. [Pimp My Vim](https://github.com/omersi/pimp_my_laptop#pimp-my-vim)
-2. [Pimp My ZSH](https://github.com/omersi/pimp_my_laptop#pimp-my-zsh)
-3. [Mac Modifier Keys](https://github.com/omersi/pimp_my_laptop#mac-modifier-keys)
-4. [IDE extensions](https://github.com/omersi/pimp_my_laptop#IDE-extensions)
+1. [Pimp My ZSH](https://github.com/omersi/pimp_my_laptop#pimp-my-zsh)
+1. [Mac Modifier Keys](https://github.com/omersi/pimp_my_laptop#mac-modifier-keys)
+1. [IDE extensions](https://github.com/omersi/pimp_my_laptop#IDE-extensions)
+1. [Kubernetes](https://github.com/omersi/pimp_my_laptop#Kubernetes
+)
 
-# pimp_my_vim_zsh
+## pimp_my_vim_zsh
 
 ----
-## Pimp my Vim:
+
+### Pimp my Vim
+
 * [ale](https://github.com/w0rp/ale) Asynchronous linting/fixing for Vim
 * [dracula-theme](https://github.com/dracula/vim) A dark theme for Vim
 * [fzf-vim](https://github.com/junegunn/fzf.vim) Things you can do with fzf and Vim NOTE: Requires** [fzf
@@ -29,22 +33,26 @@
 * [shellcheck](https://github.com/koalaman/shellcheck) ShellCheck, a static analysis tool for shell scripts
 
 ----
-## Pimp my zsh:
+
+### Pimp my zsh
 
 ### iTerm Move cursor with ctrl + arrow keys
+
 Set it to work using option (⌥) + arrows
+
 ```bash
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 ```
 
 ### Prefered Theme
+
 * [Amuse](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#amuse)
 ![amuse](https://cloud.githubusercontent.com/assets/2618447/6316861/70f3c4ce-ba03-11e4-88a5-0b423dd5a2ce.png "Amnuse screenshot")
 
-
 ### Plugins
-* https://www.freecodecamp.org/news/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38/
+
+* <https://www.freecodecamp.org/news/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38/>
 * [zsh](https://ohmyz.sh/) Your terminal never felt this good before
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) Framework for managing your zsh configuration
 * [zsh-completions](https://github.com/zsh-users/zsh-completions) [Additional completion definitions for Zsh)
@@ -52,8 +60,9 @@ bindkey "\e\e[C" forward-word
 * [bat](https://github.com/sharkdp/bat) A cat(1) clone with wings
 * [Automaticaly switch to Vevn](https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv)
 
-## Aliases
-```bash 
+### Aliases
+
+```bash
 alias lql='ls -lA *sql'
 alias hg='history | grep'
 alias pd='$HOME/workspace/scripts/pd.sh'
@@ -65,6 +74,7 @@ alias stree='tree -I \'igore1|ignore2|ignore3_*\''
 ```
 
 ----
+
 ### FZF
 
 ```bash
@@ -101,24 +111,29 @@ cdf() {
 }
 #####################################
 ```
-# Other Stuff
+
+## Other Stuff
 
 * Change your PS1 [BashRC Generator](http://bashrcgenerator.com)
 * Configure crontab schedule [Crontab Guru](https://crontab.guru)
 
 ----
 
-## pd.sh 
-```bash 
+### pd.sh
+
+```bash
 #!/bin/bash
 export LC_ALL=C
 head /dev/urandom | tr -dc 'A-Za-z0-9"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head -c 30 ; echo ''
 ```
 
----
-# Mac Modifier Keys
+----
+
+## Mac Modifier Keys
+
 When using mac with external keyboard, it's best to modify the keys to comply with Mac layout.
 I set this way:
+
 * Caps Lock > Caps Lock
 * Control > Control
 * Option > Command
@@ -129,12 +144,15 @@ Make sure to select the correct keyboard on the upper drop down menu.
 
 ![Modify Keys](mac_modifier_keys.png)
 
----
-# IDE extensions
+----
+
+## IDE extensions
+
 * [Tabnine](https://www.tabnine.com/welcome/) - TabNine uses deep learning to help you write code faster.
 
-# Kubernetes
+----
 
-* K3s - Lightweight Kubernetes https://k3s.io
+## Kubernetes
+
+* K3s - Lightweight Kubernetes <https://k3s.io>
 * K9s -  [Kubernetes CLI To Manage Your Clusters In Style](https://github.com/derailed/k9s)
-
