@@ -60,6 +60,10 @@ bindkey "\e\e[C" forward-word
 * [bat](https://github.com/sharkdp/bat) A cat(1) clone with wings
 * [Automaticaly switch to Vevn](https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv)
 
+### Modern Unix
+
+* Cool tools that helps making the terminal even better [modern-unix](https://github.com/ibraheemdev/modern-unix)
+
 ### Aliases
 
 ```bash
