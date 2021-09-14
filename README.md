@@ -160,3 +160,4 @@ Make sure to select the correct keyboard on the upper drop down menu.
 
 * K3s - Lightweight Kubernetes <https://k3s.io>
 * K9s -  [Kubernetes CLI To Manage Your Clusters In Style](https://github.com/derailed/k9s)
+* PGcli -  [Pgcli is a command line interface for Postgres with auto-completion and syntax highlighting.](https://www.pgcli.com/)
