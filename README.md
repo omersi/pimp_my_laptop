@@ -2,7 +2,9 @@
 
 1. [Pimp My Vim](https://github.com/omersi/pimp_my_laptop#pimp-my-vim)
 1. [Pimp My ZSH](https://github.com/omersi/pimp_my_laptop#pimp-my-zsh)
-1. [Mac Modifier Keys](https://github.com/omersi/pimp_my_laptop#mac-modifier-keys)
+1. [Mac](https://github.com/omersi/pimp_my_laptop#mac)
+    1. [Upgrade Bash](https://github.com/omersi/pimp_my_laptop#upgrade-bash-from-3.2.57-to-5.x)
+    1. [Mofifier Keys](https://github.com/omersi/pimp_my_laptop#modifier-keys)
 1. [IDE extensions](https://github.com/omersi/pimp_my_laptop#IDE-extensions)
 1. [Kubernetes](https://github.com/omersi/pimp_my_laptop#Kubernetes
 )
@@ -133,7 +135,19 @@ head /dev/urandom | tr -dc 'A-Za-z0-9"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head 
 
 ----
 
-## Mac Modifier Keys
+## Mac 
+
+### Upgrade bash from 3.2.57 to 5.x
+
+Mac comes with `bash 3.2.57` due to licensing issues. in order to upgrade to the latest version (5.1.12 / Dec, 2021), run
+
+```bash
+brew install bash
+newbash="$(echo $(brew --prefix)/bin/bash | sudo tee -a /private/etc/shells)"
+sudo chpass -s $newbash
+```
+
+### Modifier Keys
 
 When using mac with external keyboard, it's best to modify the keys to comply with Mac layout.
 I set this way:
