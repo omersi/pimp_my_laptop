@@ -3,7 +3,7 @@
 1. [Pimp My Vim](https://github.com/omersi/pimp_my_laptop#pimp-my-vim)
 1. [Pimp My ZSH](https://github.com/omersi/pimp_my_laptop#pimp-my-zsh)
 1. [Mac](https://github.com/omersi/pimp_my_laptop#mac)
-    1. [Upgrade Bash](https://github.com/omersi/pimp_my_laptop#upgrade-bash-from-3.2.57-to-5.x)
+    1. [Upgrade Bash](https://github.com/omersi/pimp_my_laptop#upgrade-bash-from-3-2-57-to-5-x)
     1. [Mofifier Keys](https://github.com/omersi/pimp_my_laptop#modifier-keys)
 1. [IDE extensions](https://github.com/omersi/pimp_my_laptop#IDE-extensions)
 1. [Kubernetes](https://github.com/omersi/pimp_my_laptop#Kubernetes
