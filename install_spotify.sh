@@ -27,4 +27,4 @@ Categories=Audio;Music;Player;AudioVideo;
 StartupWMClass=spotify
 EOF
 
-referenced from: https://www.maketecheasier.com/minimize-spotify-to-system-tray-linux/
+# referenced from: https://www.maketecheasier.com/minimize-spotify-to-system-tray-linux/
