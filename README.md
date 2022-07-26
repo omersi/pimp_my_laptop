@@ -9,11 +9,10 @@
 1. [Kubernetes](https://github.com/omersi/pimp_my_laptop#Kubernetes
 )
 
-## pimp_my_vim_zsh
 
 ----
 
-### Pimp my Vim
+## Pimp my Vim
 
 * [ale](https://github.com/w0rp/ale) Asynchronous linting/fixing for Vim
 * [dracula-theme](https://github.com/dracula/vim) A dark theme for Vim
@@ -36,7 +35,15 @@
 
 ----
 
-### Pimp my zsh
+## Pimp my zsh
+
+### Select AWS Profile when shell starts
+
+```bash
+# Set AWS Profile
+docker run -it -v ${HOME}/:/root/ -e AWS_PROFILE=${AWS_PROFILE} omerls/aws_credentials:latest
+export AWS_PROFILE="$(\cat ${HOME}/.aws/profile)"
+```
 
 ### iTerm Move cursor with ctrl + arrow keys
 
