@@ -37,12 +37,55 @@
 
 ## Pimp my zsh
 
-### Select AWS Profile when shell starts
+### Set PYTHONPATH when in poetry environment
 
 ```bash
-# Set AWS Profile
-docker run -it -v ${HOME}/:/root/ -e AWS_PROFILE=${AWS_PROFILE} omerls/aws_credentials:latest
-export AWS_PROFILE="$(\cat ${HOME}/.aws/profile)"
+# Update PYTHONPATH with the project directory when entering a Poetry environment
+function poetry_enter() {
+  local project_dir
+  project_dir=$(poetry run python -c 'import os; print(os.path.dirname(os.path.realpath("pyproject.toml")))')
+
+  if [[ -n "$project_dir" ]]; then
+    # Check if any parent directory is already present in PYTHONPATH
+    local parent_dir
+    parent_dir=$project_dir
+    while [[ "$parent_dir" != "/" ]]; do
+      if [[ ":$PYTHONPATH:" == *":$parent_dir:"* ]]; then
+        return
+      fi
+      parent_dir=$(dirname "$parent_dir")
+    done
+
+    export PYTHONPATH="$project_dir:$PYTHONPATH"
+  fi
+}
+
+# Remove PYTHONPATH when exiting a Poetry environment
+function poetry_exit() {
+  unset PYTHONPATH
+}
+
+# Check if current or parent directory contains the pyproject.toml file
+function is_in_poetry_project() {
+  local dir
+  dir=$PWD
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/pyproject.toml" ]]; then
+      return 0
+    fi
+    dir=$(dirname "$dir")
+  done
+  return 1
+}
+
+# Hook into directory changes and activate/deactivate PYTHONPATH accordingly
+function chpwd() {
+  if is_in_poetry_project; then
+    poetry_enter
+  else
+    poetry_exit
+  fi
+}
 ```
 
 ### iTerm Move cursor with ctrl + arrow keys
