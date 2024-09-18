@@ -143,29 +143,85 @@ fe() {
    local command="${EDITOR:-vim} -p $files"
    [ -n "$files" ] && eval $command
 }
- # fag - find an argument with ag and fzf and open with vim
-fag() {
- [ $# -eq 0  ] && return
- local out cols
- if out=$(ag --nogroup --color "$@" | fzf --ansi); then
-   setopt sh_word_split
-   cols=(${out//:/  })
-   unsetopt sh_word_split
-   vim ${cols[1]} +"normal! ${cols[2]}zz"
- fi
+```
+
+#### fag - find an argument with ag and fzf and open with vim
+```bash
+fag () {
+	local dir_pattern=""
+	local search_args=()
+	local ignore_args=()
+	local arg_parse_ignore=false
+	while [[ "$1" =~ ^- && ! "$1" == "--" ]]
+	do
+		case $1 in
+			(-h) echo "Usage: fag [options] search_term -- ignore_pattern1 ignore_pattern2 ..."
+				echo "Options:"
+				echo "  -h            Show this help message and exit."
+				echo "  -d            Specify a custom directory pattern to search within."
+				return ;;
+			(-d) shift
+				dir_pattern="$1"  ;;
+		esac
+		shift
+	done
+	if [[ "$1" == "--" ]]
+	then
+		shift
+	fi
+	while [[ $# -gt 0 ]]
+	do
+		if [[ $1 == "--" ]]
+		then
+			arg_parse_ignore=true
+			shift
+			continue
+		fi
+		if [[ $arg_parse_ignore == true ]]
+		then
+			ignore_args+=("--ignore='$1'")
+		else
+			search_args+=("$1")
+		fi
+		shift
+	done
+	if [ ${#search_args[@]} -eq 0 ]
+	then
+		echo "Error: No query. What do you want to search for?"
+		return
+	fi
+	local search_dirs=("$HOME/workspace" "$HOME/Downloads" "$HOME/Documents" "$HOME/.scripts")
+	local search_command="ag --nogroup --color"
+	for i in "${ignore_args[@]}"
+	do
+		search_command+=" $i"
+	done
+	search_command+=" '${search_args[@]}' ${search_dirs[@]}"
+	echo "Running command: $search_command"
+	local out=$(eval $search_command | fzf --ansi --delimiter=':' --with-nth=1,2 --preview="bat --color=always --style=numbers,grid --highlight-line {2} --paging=always --pager 'less +{2}' {1}" --preview-window=right:50%:nowrap)
+	if [[ -n "$out" ]]
+	then
+		local file=$(echo "$out" | cut -d':' -f1)
+		local line=$(echo "$out" | cut -d':' -f2)
+		echo "Opening $file at line $line..."
+
+		# Determine the two-level parent workspace directory manually
+		local workspace_dir=$(dirname "$file" | sed -E 's|^('$HOME'/workspace/[^/]+/[^/]+).*$|\1|')
+
+		# If workspace is already open for this directory, add to the workspace
+		local is_workspace_open=$(ps aux | grep "code.*$workspace_dir" | grep -v grep)
+		if [[ -n "$is_workspace_open" ]]
+		then
+			# Add the file to the already opened workspace
+			code --add "$file" --goto "$file:$line"
+		else
+			# Open a new workspace window for the specific workspace directory
+			code "$workspace_dir" --goto "$file:$line"
+		fi
+	else
+		echo "No file selected."
+	fi
 }
- # cdf - cd into the directory of the selected file\
-cdf() {
-  local file
-  local dir
-  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-}
- fep() {
-    local files=$(fzf --query="$1" --select-1 --exit-0 --preview="bat --color=always {}" --preview-window=right:50%:wrap | sed -e "s/\(.*\)/\'\1\'/")
-    local command="${EDITOR:-vim} -p $files"
-    [ -n "$files" ] && eval $command
-}
-#####################################
 ```
 
 ## Other Stuff
