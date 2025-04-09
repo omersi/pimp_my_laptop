@@ -6,8 +6,9 @@
     1. [Upgrade Bash](https://github.com/omersi/pimp_my_laptop#upgrade-bash-from-3-2-57-to-5-x)
     1. [Mofifier Keys](https://github.com/omersi/pimp_my_laptop#modifier-keys)
 1. [IDE extensions](https://github.com/omersi/pimp_my_laptop#IDE-extensions)
-1. [Kubernetes](https://github.com/omersi/pimp_my_laptop#Kubernetes
-)
+1. [Kubernetes](https://github.com/omersi/pimp_my_laptop#Kubernetes)
+2. [AWS Multiple Account SSO Login](https://github.com/omersi/pimp_my_laptop#Multiple-Account-SSO-Login)
+
 
 
 ----
@@ -281,3 +282,66 @@ Make sure to select the correct keyboard on the upper drop down menu.
 * K3s - Lightweight Kubernetes <https://k3s.io>
 * K9s -  [Kubernetes CLI To Manage Your Clusters In Style](https://github.com/derailed/k9s)
 * PGcli -  [Pgcli is a command line interface for Postgres with auto-completion and syntax highlighting.](https://www.pgcli.com/)
+
+## AWS
+
+### Multiple Account SSO Login
+Based on https://medium.com/@RDarrylR/aws-sso-credentials-with-multiple-accounts-9a8466ca244d
+
+Generate `~/.aws/config` file where every profile uses the same `sso_session`
+
+```ini
+[default]
+region = us-east-1
+output = json
+
+# Shared SSO session
+[sso-session devops-session]
+sso_start_url = https://your-sso-start-url.awsapps.com/start
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+
+# Central shared services account (primary login)
+[profile shared-services]
+sso_session = devops-session
+sso_account_id = 111111111111
+sso_role_name = DevOpsAccess
+region = us-east-1
+output = json
+
+# Development account
+[profile dev]
+sso_session = devops-session
+sso_account_id = 222222222222
+sso_role_name = DeveloperAccess
+region = us-east-1
+output = json
+
+# Production account
+[profile prod]
+sso_session = devops-session
+sso_account_id = 333333333333
+sso_role_name = ReadOnlyAccess
+region = us-east-1
+output = json
+
+# Optional: Additional environments
+[profile staging]
+sso_session = devops-session
+sso_account_id = 444444444444
+sso_role_name = DeveloperAccess
+region = us-east-1
+output = json
+```
+
+Login with 
+```bash
+aws sso login --profile shared-services
+```
+
+Test 
+```bash
+aws s3 ls --profile dev
+aws sts get-caller-identity --profile prod
+```
+
